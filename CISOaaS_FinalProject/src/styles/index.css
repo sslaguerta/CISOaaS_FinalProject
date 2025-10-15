@@ -1,0 +1,44 @@
+:root {
+  --color-primary: #008080; /* Teal */
+  --color-secondary: #40e0d0; /* Turquoise */
+  --color-accent: #20b2aa; /* Light Teal */
+  --color-bg: #cfffe5; /* Seafoam */
+  --color-text: #023047; /* Navy Blue */
+}
+
+body {
+  background-color: black !important;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif !important;
+}
+
+.login-form {
+  color: var(--color-accent);
+}
+
+.login-form p {
+  font-size: 80%;
+}
+
+.login-form input {
+  padding: 6px;
+  padding-left: 10px;
+  border: none;
+  width: 70% !important;
+}
+
+.login-form input:focus {
+  outline: none;
+}
+
+.login-form button{
+  background-color: var(--color-secondary);
+  border: none;
+  padding: 6px;
+  font-weight: bold;
+  color: var(--color-text);
+  width: 70% !important;
+}
+
+.login-form img{
+  max-width: 40vw;
+}
