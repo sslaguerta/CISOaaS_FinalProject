@@ -1,11 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
-const generateOtp = () => {
-  return Math.floor(100000 + Math.random() * 900000).toString(); // palitan ng galing back end ni ramyr or eto nalang for simplicity
-};
-
-const LogInForm = () => {
+const LogInForm = ({ setIsOTPSent, setGeneratedOtp }) => {
   const [email, setEmail] = useState("");
   const [isSending, setIsSending] = useState(false);
 
@@ -13,10 +9,16 @@ const LogInForm = () => {
   const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+  const generateOtp = () => {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+  };
+
   const sendEmail = async (e) => {
     e.preventDefault();
     setIsSending(true);
 
+    const otp = generateOtp();
+    setGeneratedOtp(otp);
     const expiryTime = new Date();
     expiryTime.setMinutes(expiryTime.getMinutes() + 15);
     const formattedTime = expiryTime.toLocaleTimeString([], {
@@ -26,7 +28,7 @@ const LogInForm = () => {
 
     const templateParams = {
       to_email: email,
-      passcode: generateOtp(),
+      passcode: otp,
       time: formattedTime,
     };
 
@@ -34,6 +36,7 @@ const LogInForm = () => {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, {
         publicKey: PUBLIC_KEY,
       });
+      setIsOTPSent(true);
       alert(`OTP sent to ${email}`);
     } catch (error) {
       console.log("Emailjs Error:", error);
@@ -44,7 +47,7 @@ const LogInForm = () => {
   };
   return (
     <>
-      <div className="login-form container d-flex flex-column justify-content center text-center gap-2">
+      <div className="login-form container d-flex flex-column justify-content center text-center">
         <div className="row">
           <div className="col-12 col-md-6 container">
             <img className="img-fluid" src="./logo-ciso.png" alt="ciso logo" />

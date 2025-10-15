@@ -7,12 +7,14 @@
 }
 
 body {
-  background-color: black !important;
+  background-color: var(--color-text) !important;
   font-family: "Montserrat", Arial, Helvetica, sans-serif !important;
+  background: linear-gradient(135deg, #023047, #035a7d);
 }
 
 .login-form {
   color: var(--color-accent);
+  width: 100vw !important;
 }
 
 .login-form p {
@@ -30,7 +32,7 @@ body {
   outline: none;
 }
 
-.login-form button{
+.login-form button {
   background-color: var(--color-secondary);
   border: none;
   padding: 6px;
@@ -39,6 +41,20 @@ body {
   width: 70% !important;
 }
 
-.login-form img{
+.login-form img {
   max-width: 40vw;
+}
+
+.login-container {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* border: 1px solid rgba(255, 255, 255, 0.3);  */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem 0;
+  height: 80% !important;
+  display: flex;
+  align-items: center !important;
+  max-width: 100% !important;
 }
