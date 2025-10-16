@@ -58,3 +58,22 @@ body {
   align-items: center !important;
   max-width: 100% !important;
 }
+
+.header {
+  background-color: var(--color-text);
+}
+
+.header input {
+  border: none;
+  background-color: rgb(71, 71, 71);
+  padding: 4px 10px !important;
+  color: white;
+}
+
+.header input:focus {
+  outline: none;
+}
+
+.header img{
+  width: 2.5rem;
+}

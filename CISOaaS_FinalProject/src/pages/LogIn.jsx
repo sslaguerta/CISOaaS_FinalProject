@@ -7,15 +7,17 @@ const LogIn = () => {
   const [generatedOtp, setGeneratedOtp] = useState("");
 
   return (
-    <div className="login-container">
-      {!isOTPSent ? (
-        <LogInForm
-          setIsOTPSent={setIsOTPSent}
-          setGeneratedOtp={setGeneratedOtp}
-        />
-      ) : (
-        <OTPForm generatedOtp={generatedOtp} />
-      )}
+    <div className="container d-flex justify-content-center align-items-center vh-100">
+      <div className="login-container">
+        {!isOTPSent ? (
+          <LogInForm
+            setIsOTPSent={setIsOTPSent}
+            setGeneratedOtp={setGeneratedOtp}
+          />
+        ) : (
+          <OTPForm generatedOtp={generatedOtp} />
+        )}
+      </div>
     </div>
   );
 };

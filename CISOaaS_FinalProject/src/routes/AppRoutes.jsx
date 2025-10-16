@@ -7,14 +7,10 @@ import ErrorPage from "../pages/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/login",
-    element: (
-      <div className="container d-flex justify-content-center align-items-center vh-100">
-        <LogIn />
-      </div>
-    ),
+    element: <LogIn />,
   },
   {
-    path: "/dashboard",
+    path: "/",
     element: <Dashboard />,
   },
   {
