@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const OTPForm = ({ generatedOtp }) => {
+  console.log(localStorage.getItem("hashedOtp"));
   const navigate = useNavigate();
   const [otpInput, setOtpInput] = useState("");
 

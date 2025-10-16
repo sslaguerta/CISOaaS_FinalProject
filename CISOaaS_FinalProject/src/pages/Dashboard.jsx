@@ -1,10 +1,11 @@
-import React from "react";
 import Navbar from "../components/Navbar";
+import UsersTable from "../components/UsersTable";
 
 const Dashboard = () => {
   return (
     <>
-      <Navbar/>
+      <Navbar />
+      <UsersTable />
     </>
   );
 };

@@ -13,12 +13,27 @@ const LogInForm = ({ setIsOTPSent, setGeneratedOtp }) => {
     return Math.floor(100000 + Math.random() * 900000).toString();
   };
 
+  const hashOtp = async (otp) => {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(otp);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
+    return hashHex;
+  };
+
   const sendEmail = async (e) => {
     e.preventDefault();
     setIsSending(true);
 
     const otp = generateOtp();
+    const hashedOtp = await hashOtp(otp);
+
+    localStorage.setItem("hashedOtp", hashedOtp);
     setGeneratedOtp(otp);
+
     const expiryTime = new Date();
     expiryTime.setMinutes(expiryTime.getMinutes() + 15);
     const formattedTime = expiryTime.toLocaleTimeString([], {
