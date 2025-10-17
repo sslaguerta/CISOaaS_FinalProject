@@ -9,7 +9,7 @@ const OTPForm = ({ generatedOtp }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (otpInput === generatedOtp || "1") {
+    if (otpInput === generatedOtp) {
       console.log(otpInput);
       alert("OTP is correct");
       navigate("/");

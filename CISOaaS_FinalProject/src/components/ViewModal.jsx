@@ -36,20 +36,22 @@ const ViewModal = ({ showModal, setShowModal, selectedUser }) => {
         )}
       </Modal.Body>
       <Modal.Footer>
-        <div className="d-flex gap-2 align-items-center justify-content-center">
-          <a className="btn btn-success" href="#" title="Approve">
-            <i className="fa-solid fa-thumbs-up"></i>
-          </a>
-          <a className="btn btn-danger" href="#" title="Disapprove">
-            <i className="fa-solid fa-thumbs-down"></i>
-          </a>
-          <a className="btn btn-secondary" href="#" title="For Consideration">
-            <i className="fa-solid fa-business-time"></i>
-          </a>
+        <div className="d-flex justify-content-between w-100">
+          <div className="d-flex gap-2 align-items-center justify-content-center">
+            <a className="btn btn-success" href="#" title="Approve">
+              <i className="fa-solid fa-thumbs-up"></i>
+            </a>
+            <a className="btn btn-danger" href="#" title="Disapprove">
+              <i className="fa-solid fa-thumbs-down"></i>
+            </a>
+            <a className="btn btn-secondary" href="#" title="For Consideration">
+              <i className="fa-solid fa-business-time"></i>
+            </a>
+          </div>
+          <Button variant="secondary" onClick={() => setShowModal(false)}>
+            Close
+          </Button>
         </div>
-        <Button variant="secondary" onClick={() => setShowModal(false)}>
-          Close
-        </Button>
       </Modal.Footer>
     </Modal>
   );
