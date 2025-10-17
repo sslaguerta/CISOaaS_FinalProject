@@ -51,7 +51,13 @@ const UsersTable = () => {
 
   return (
     <Container className="mt-5 text-light">
-      <h3 className="text-center mb-4">User List</h3>
+      <h3 className="mb-2">User List</h3>
+
+      <div className="btn-group">
+        <button className="btn btn-success">New</button>
+        <button className="btn btn-secondary">For Consideration</button>
+        <button className="btn btn-danger">Rejected</button>
+      </div>
       <Table striped bordered hover responsive variant="light">
         <thead className="table-primary">
           <tr className="text-center">
@@ -64,13 +70,13 @@ const UsersTable = () => {
           {users.length > 0 ? (
             users.map((user) => (
               <tr key={user.id}>
-                <td>
+                <td className="text-center">
                   <button
-                    className="btn btn-warning"
+                    className="btn btn-success py-1"
                     title="View"
                     onClick={() => handleView(user.id)}
                   >
-                    <i className="fa-solid fa-eye"></i>
+                    <i className="fa-regular fa-file-lines"></i>
                   </button>
                 </td>
                 <td>{user.name}</td>
