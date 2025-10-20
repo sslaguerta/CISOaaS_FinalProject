@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../components/NavbarMain";
 import UsersTable from "../components/UsersTable";
 
 const Dashboard = () => {

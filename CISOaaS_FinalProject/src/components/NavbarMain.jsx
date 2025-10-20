@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = () => {
+const NavbarMain = () => {
   return (
     <>
       <nav className="header w-100 d-flex justify-content-end align-items-center px-4 py-2 gap-3">
@@ -28,4 +28,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarMain;

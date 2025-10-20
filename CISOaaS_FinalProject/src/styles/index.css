@@ -74,6 +74,17 @@ body {
   outline: none;
 }
 
-.header img{
+.header img {
   width: 2.5rem;
+}
+
+.tabstrips button {
+  border-radius: 10px 10px 0 0;
+  box-shadow: 4px 0px 6px 0px rgba(0, 0, 0, 0.459);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.active-tab {
+  scale: 1.02;
 }
