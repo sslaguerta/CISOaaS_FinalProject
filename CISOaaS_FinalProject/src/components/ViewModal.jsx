@@ -1,10 +1,19 @@
-import { useState, useEffect } from "react";
 import { Table, Container, Spinner, Modal, Button } from "react-bootstrap";
-import Lottie from "lottie-react";
-import animationData from "../assets/hero-animation.json";
-import { data } from "react-router-dom";
+import { apiUser } from "../api/axios";
 
 const ViewModal = ({ showModal, setShowModal, selectedUser }) => {
+  const handleChangeStatus = async (id, command) => {
+    try {
+      const response = await apiUser.put(
+        `/User/ChangeStatus/${id}?command=${command}`
+      );
+      alert(response.data.message);
+      window.location.reload();
+    } catch (err) {
+      alert("Something went wrong: ", err);
+      console.log("Something went wrong: ", err);
+    }
+  };
   return (
     <Modal
       show={showModal}
@@ -38,7 +47,12 @@ const ViewModal = ({ showModal, setShowModal, selectedUser }) => {
       <Modal.Footer>
         <div className="d-flex justify-content-between w-100">
           <div className="d-flex gap-2 align-items-center justify-content-center">
-            <a className="btn btn-success" href="#" title="Approve">
+            <a
+              className="btn btn-success"
+              href="#"
+              title="Approve"
+              onClick={() => handleChangeStatus(selectedUser.id, "Approved")}
+            >
               <i className="fa-solid fa-thumbs-up"></i>
             </a>
             <a className="btn btn-danger" href="#" title="Disapprove">

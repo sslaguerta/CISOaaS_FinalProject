@@ -2,10 +2,7 @@ import { useState, useEffect, act, use } from "react";
 import { Table, Container, Spinner, Modal } from "react-bootstrap";
 import Lottie from "lottie-react";
 import animationData from "../assets/hero-animation.json";
-import ViewModal from "./ViewModal";
-import NavBar from "./NavbarMain";
 import NewTable from "./NewTable";
-import { data } from "react-router-dom";
 
 const UsersTable = () => {
   const [newUsers, setNewUsers] = useState([]);
@@ -87,6 +84,7 @@ const UsersTable = () => {
             activeTab == "New" ? " active-tab" : ""
           }`}
           onClick={() => setActiveTab("New")}
+          title="New"
         >
           New
         </button>

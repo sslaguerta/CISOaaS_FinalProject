@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import ViewModal from "./ViewModal";
+import empty from "../assets/Empty.json";
+import Lottie from "lottie-react";
 
 const NewTable = ({ activeTab, content }) => {
   const [showModal, setShowModal] = useState(false);
@@ -21,6 +23,17 @@ const NewTable = ({ activeTab, content }) => {
   };
   return (
     <div>
+      <div
+        className={`line ${
+          activeTab == "New"
+            ? "bg-primary"
+            : activeTab == "Rejected"
+            ? "bg-danger"
+            : activeTab == "Approved"
+            ? "bg-success"
+            : "bg-light"
+        } w-100`}
+      ></div>
       <Table striped bordered hover responsive variant="light">
         <thead
           className={`${
@@ -45,7 +58,7 @@ const NewTable = ({ activeTab, content }) => {
               <tr key={user.id}>
                 <td className="text-center">
                   <button
-                    className="btn btn-success py-1"
+                    className="btn btn-success p-1"
                     title="View"
                     onClick={() => handleView(user.id)}
                   >
@@ -59,6 +72,7 @@ const NewTable = ({ activeTab, content }) => {
           ) : (
             <tr>
               <td colSpan="3" className="text-center">
+                <Lottie animationData={empty} loop={true} />
                 No users found.
               </td>
             </tr>
