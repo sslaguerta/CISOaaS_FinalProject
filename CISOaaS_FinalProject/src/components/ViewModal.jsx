@@ -55,10 +55,22 @@ const ViewModal = ({ showModal, setShowModal, selectedUser }) => {
             >
               <i className="fa-solid fa-thumbs-up"></i>
             </a>
-            <a className="btn btn-danger" href="#" title="Disapprove">
+            <a
+              className="btn btn-danger"
+              href="#"
+              title="Disapprove"
+              onClick={() => handleChangeStatus(selectedUser.id, "Rejected")}
+            >
               <i className="fa-solid fa-thumbs-down"></i>
             </a>
-            <a className="btn btn-secondary" href="#" title="For Consideration">
+            <a
+              className="btn btn-secondary"
+              href="#"
+              title="For Consideration"
+              onClick={() =>
+                handleChangeStatus(selectedUser.id, "ForConsideration")
+              }
+            >
               <i className="fa-solid fa-business-time"></i>
             </a>
           </div>
